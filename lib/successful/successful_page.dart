@@ -1,19 +1,19 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-import 'sign_in_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class SuccessfulPage extends StatelessWidget {
   const SuccessfulPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return LayoutBuilder(builder: (context, constraints) {
+      final bool isMobile = constraints.maxWidth < 600;
+      return Scaffold(
       backgroundColor: purple,
       body: Center(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width * .8,
+          width: isMobile ? MediaQuery.of(context).size.width * .8 : 600,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -21,27 +21,35 @@ class SuccessfulPage extends StatelessWidget {
                   height: 30,
                 ),
                 //SignInButton.mini(buttonType: ButtonType.linkedin, onPressed: (){}),
-                const Text(
-                  'Your registration was successful!',
-                  style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Your registration was successful!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                        ),
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Image.asset("assets/icons/check.png"),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
 
-                Text(
-                  'Your registration was succesful \n and we have sent you \n a confirmation receipt to your \n email at:',
-                  textAlign: TextAlign.center,
-                  style: textGrey,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Your registration was succesful and we have sent you a confirmation receipt to your email at:',
+                    textAlign: TextAlign.center,
+                    style: textGrey,
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
@@ -52,7 +60,7 @@ class SuccessfulPage extends StatelessWidget {
                       fontSize: 20,
                       color: colorGrey),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 MaterialButton(
@@ -84,5 +92,6 @@ class SuccessfulPage extends StatelessWidget {
         ),
       ),
     );
+    },);
   }
 }

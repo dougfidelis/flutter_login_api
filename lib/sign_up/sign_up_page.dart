@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_back/sign_in_page.dart';
-import 'package:flutter_back/successful_page.dart';
+import 'package:flutter_back/sign_in/sign_in_page.dart';
+import 'package:flutter_back/successful/successful_page.dart';
 
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
@@ -11,11 +11,13 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return LayoutBuilder(builder: (context, constraints) {
+      final bool isMobile = constraints.maxWidth < 600;
+      return Scaffold(
       backgroundColor: purple,
       body: Center(
         child: SizedBox(
-          width: MediaQuery.of(context).size.width * .8,
+          width: isMobile ? MediaQuery.of(context).size.width * .8 : 600,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -35,7 +37,7 @@ class SignUpPage extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        print('linkedin');
+                        debugPrint('linkedin');
                       },
                       child: Image.asset(
                         "assets/icons/linkedin-icon.png",
@@ -47,7 +49,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        print('google');
+                        debugPrint('google');
                       },
                       child: Image.asset(
                         "assets/icons/google-icon.png",
@@ -59,7 +61,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        print('github');
+                        debugPrint('github');
                       },
                       child: Image.asset(
                         "assets/icons/Git.png",
@@ -88,7 +90,7 @@ class SignUpPage extends StatelessWidget {
                             "assets/icons/user-icon.png",
                             scale: 1,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -102,7 +104,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                       ),
                     ),
@@ -120,7 +122,7 @@ class SignUpPage extends StatelessWidget {
                             "assets/icons/email-icon.png",
                             scale: 1,
                           ),
-                          SizedBox(
+                         const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -134,7 +136,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                       ),
                     ),
@@ -152,7 +154,7 @@ class SignUpPage extends StatelessWidget {
                             "assets/icons/pwd-icon.png",
                             scale: 1,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -166,7 +168,7 @@ class SignUpPage extends StatelessWidget {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                       ),
                     ),
@@ -184,7 +186,7 @@ class SignUpPage extends StatelessWidget {
                             "assets/icons/pwd-icon.png",
                             scale: 1,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -198,13 +200,13 @@ class SignUpPage extends StatelessWidget {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.zero,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
 
@@ -259,5 +261,6 @@ class SignUpPage extends StatelessWidget {
         ),
       ),
     );
+    },);
   }
 }
