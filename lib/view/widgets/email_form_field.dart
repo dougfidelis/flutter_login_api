@@ -15,8 +15,10 @@ class EmailFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        
         controller: email,
         decoration: InputDecoration(
+          errorText: "email",
           floatingLabelBehavior: FloatingLabelBehavior.never,
           label: Row(
             children: [

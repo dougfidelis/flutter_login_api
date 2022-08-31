@@ -131,7 +131,7 @@ class SignUpButton extends StatelessWidget {
         repo.register(user);
 
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const SuccessfulPage(),
+          builder: (context) =>  SuccessfulPage(email: email.text),
         ));
       },
       color: Colors.white,

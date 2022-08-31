@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import '../sign_in/sign_in_page.dart';
 
 class SuccessfulPage extends StatelessWidget {
-  const SuccessfulPage({Key? key}) : super(key: key);
-
+  SuccessfulPage({Key? key, required this.email}) : super(key: key);
+  final String email;
   @override
   Widget build(BuildContext context) {
+    
     return LayoutBuilder(builder: (context, constraints) {
       final bool isMobile = constraints.maxWidth < 600;
       return Scaffold(
@@ -27,7 +28,7 @@ class SuccessfulPage extends StatelessWidget {
                     'Your registration was successful!',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 30,
                         color: Colors.white,
                         fontWeight: FontWeight.bold
                         ),
@@ -52,8 +53,8 @@ class SuccessfulPage extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  'email@email.com',
+                Text(email
+                  ,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.w800,

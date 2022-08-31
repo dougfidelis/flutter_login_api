@@ -7,7 +7,7 @@ class UserRepository {
     var dio = Dio();
 
     var response =
-        await dio.post("http://192.168.0.25/api/usuario", data: user.toMap());
+        await dio.post("http://192.168.0.119/api/usuario", data: user.toMap());
 
     return response.data;
   }
