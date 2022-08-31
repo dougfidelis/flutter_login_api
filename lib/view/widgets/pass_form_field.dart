@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../sign_in_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class PassFormField extends StatelessWidget {
   const PassFormField({
@@ -28,9 +28,7 @@ class PassFormField extends StatelessWidget {
               Text(
                 'Password',
                 style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w300,
-                    color: purple),
+                    fontSize: 22, fontWeight: FontWeight.w300, color: purple),
               ),
             ],
           ),

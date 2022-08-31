@@ -1,8 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 
-import '../sign_in_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class SignInButton extends StatelessWidget {
   const SignInButton({
@@ -21,7 +19,7 @@ class SignInButton extends StatelessWidget {
         debugPrint("${email.text} ${password.text}");
       },
       color: Colors.white,
-      minWidth:  MediaQuery.of(context).size.width * .7,
+      minWidth: MediaQuery.of(context).size.width * .7,
       height: 45,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
